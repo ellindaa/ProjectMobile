@@ -43,12 +43,13 @@ fun TipTimeLayout() {
     var amountInput by remember { mutableStateOf("") }
     var tipInput by remember { mutableStateOf("") }
     var roundUp by remember { mutableStateOf(false) }
+    // remember digunakan untuk menyimpan status input seperti jumlah, persentase tip.
 
-    val amount = amountInput.toDoubleOrNull() ?: 0.0
+    val amount = amountInput.toDoubleOrNull() ?: 0.0 // Mengkonversi input string ke double untuk perhitungan, jika gagal maka default 0.
     val tipPercent = tipInput.toDoubleOrNull() ?: 0.0
-
-    val tip = calculateTip(amount, tipPercent, roundUp)
-
+    val tip = calculateTip(amount, tipPercent, roundUp) // Menghitung jumlah tip dengan memanggil fungsi calculateTip.
+    
+    // Column untuk mengatur elemen di dalamnya secara vertikal
     Column(
         modifier = Modifier
             .statusBarsPadding()
@@ -59,12 +60,12 @@ fun TipTimeLayout() {
         verticalArrangement = Arrangement.Center
     ) {
         Text(
-            text = stringResource(R.string.calculate_tip),
+            text = stringResource(R.string.calculate_tip), // Mengambil string dari sumber daya.
             modifier = Modifier
                 .padding(bottom = 16.dp, top = 40.dp)
                 .align(alignment = Alignment.Start)
         )
-        EditNumberField(
+        EditNumberField( // Fungsi composable untuk membuat input angka
             label = R.string.bill_amount,
             leadingIcon = R.drawable.money,
             keyboardOptions = KeyboardOptions.Default.copy(
@@ -90,20 +91,21 @@ fun TipTimeLayout() {
                 .padding(bottom = 32.dp)
                 .fillMaxWidth()
         )
-        RoundTheTipRow(
+        RoundTheTipRow( // fungsi yang menampilkan opsi untuk membulatkan tip
             roundUp = roundUp,
             onRoundUpChanged = { roundUp = it },
             modifier = Modifier.padding(bottom = 32.dp)
         )
         Text(
             text = stringResource(R.string.tip_amount, tip),
-            style = MaterialTheme.typography.displaySmall
+            style = MaterialTheme.typography.displaySmall // menampilkan jumlah tip yang dihitung dengan format mata uang.
         )
-        Spacer(modifier = Modifier.height(150.dp))
+        Spacer(modifier = Modifier.height(150.dp)) // Menambahkan ruang kosong
     }
 }
 
 @Composable
+// Membuat field input untuk angka dengan label, ikon, dan opsi keyboard
 fun EditNumberField(
     @StringRes label: Int,
     @DrawableRes leadingIcon: Int,
@@ -112,18 +114,19 @@ fun EditNumberField(
     onValueChange: (String) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    TextField(
+    TextField( // untuk menangani input pengguna
         value = value,
         leadingIcon = { Icon(painterResource(id = leadingIcon), null) },
         singleLine = true,
         modifier = modifier,
         onValueChange = onValueChange,
         label = { Text(stringResource(label)) },
-        keyboardOptions = keyboardOptions // Use passed keyboardOptions
+        keyboardOptions = keyboardOptions 
     )
 }
 
 @Composable
+// untuk menampilkan baris dengan teks dan switch untuk opsi pembulatan tip.
 fun RoundTheTipRow(
     roundUp: Boolean,
     onRoundUpChanged: (Boolean) -> Unit,
@@ -145,6 +148,8 @@ fun RoundTheTipRow(
     }
 }
 
+
+// Menghitung jumkah tip berdasarkan jumlah dan presentase    
 private fun calculateTip(
     amount: Double,
     tipPercent: Double = 15.0,
@@ -152,11 +157,12 @@ private fun calculateTip(
 ): String {
     var tip = tipPercent / 100 * amount
     if (roundUp) {
-        tip = kotlin.math.ceil(tip)
+        tip = kotlin.math.ceil(tip) // Jika opsi pembulatan aktif, menggunakan ceil untuk membulatkan jumlah
     }
-    return NumberFormat.getCurrencyInstance().format(tip)
+    return NumberFormat.getCurrencyInstance().format(tip) // Mengembalikan nilai tip dalam format mata uang.
 }
 
+// Fungsi untuk menampilkan pratinjau 
 @Preview(showBackground = true)
 @Composable
 fun TipTimeLayoutPreview() {
