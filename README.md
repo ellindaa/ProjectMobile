@@ -3,5 +3,5 @@
 ### 225410018_Ellinda
 
 1. Belajar Teks -> branch master (Pertemuan 3)
-2. Lemon App -> branch lemonapp (Pertemuan 4)
+2. Lemon App -> branch lemon_app (Pertemuan 4)
    
