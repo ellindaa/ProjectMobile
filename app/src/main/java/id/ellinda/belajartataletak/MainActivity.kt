@@ -77,6 +77,7 @@ fun DiceWithButtonAndImage(modifier: Modifier = Modifier) {
         modifier = modifier,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        // Box digunakan untuk menampilkan gambar dan tombol
         Box(
             modifier = Modifier
                 .clickable { result.value = (1..4).random() }  // Saat gambar di klik akan mengubah nilai
