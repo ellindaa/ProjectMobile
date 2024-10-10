@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Art Space</string>
+    <string name="roll">Roll</string>
+    <string name="raden_saleh">Arrest of Prince Diponegoro</string>
+    <string name="raden_saleh_description">This is a famous artwork.</string> <!-- description text -->
+    <string name="badai">The storm will definitely pass</string>
+    <string name="badai_description">A reminder of resilience.</string> <!-- description text -->
+    <string name="perburuan">Deer Hunting</string>
+    <string name="perburuan_description">Capturing the essence of nature.</string> <!-- description text -->
+    <string name="nyi">Nyi Roro Kidul</string>
+    <string name="nyi_description">The queen of the southern seas.</string> <!-- description text -->
+    <string name="alisadikin">Ali Sadikin during the Independence Period</string>
+    <string name="alisadikin_description">A pivotal figure in Indonesian history.</string> <!-- description text -->
+    <string name="theruins">The Ruins and The Piano</string>
+    <string name="theruins_description">A blend of history and art.</string> <!-- description text -->
+    <string name="megamendung">A View of Mount Megamendung</string>
+    <string name="megamendung_description">A serene landscape of beauty.</string> <!-- description text -->
+    <string name="pasukan">Our Troops Under the Leadership of Prince Diponegoro</string>
+    <string name="pasukan_description">United in the fight for freedom.</string> <!-- description text -->
+    <string name="lukisanbali">Bali Life</string>
+    <string name="lukisanbali_description">A celebration of culture and tradition.</string> <!-- description text -->
+    <string name="pandawadadu">Pandawa Dadu</string>
+    <string name="pandawadadu_description">The story of valor and heroism.</string> <!-- description text -->
+</resources>
