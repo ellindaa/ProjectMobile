@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Affirmations</string>
+    <string name="affirmation1">I am confident and capable.</string>
+    <string name="affirmation2">I deserve to be happy and succesful.</string>
+    <string name="affirmation3">I have power to achieve my goals.</string>
+    <string name="affirmation4">Every day, I am getting better and better.</string>
+    <string name="affirmation5">I am surrounded by positive energy.</string>
+    <string name="affirmation6">I focus on my goals and succeed.</string>
+    <string name="affirmation7">I have high self-confident.</string>
+    <string name="affirmation8">I enjoy every step of my life journey.</string>
+    <string name="affirmation9">I am strong.</string>
+    <string name="affirmation10">I will be present in all the moments that this day brings.</string>
+
+</resources>
