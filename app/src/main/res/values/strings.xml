@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Guest</string>
+    <string name="guest_name_1">Nobita</string>
+    <string name="guest_name_2">Shizuka</string>
+    <string name="guest_name_3">Suneo</string>
+    <string name="guest_name_4">Gian</string>
+    <string name="guest_name_5">Doraemon</string>
+    <string name="guest_name_6">Tamako</string>
+    <string name="guest_name_7">Guru</string>
+    <string name="guest_name_8">Nobisuke</string>
+
+    <string name="guest_address_1">Rumah Nobita, Duku Muda No. 1</string>
+    <string name="guest_address_2">Rumah Shizuka, Jl. Sakura No. 5</string>
+    <string name="guest_address_3">Rumah Suneo, Jl. Raya No. 10</string>
+    <string name="guest_address_4">Rumah Gian, Jl. Bunga No. 3</string>
+    <string name="guest_address_5">Rumah Doraemon, Jl. Mimpi No. 2</string>
+    <string name="guest_address_6">Rumah Tamako, Jl. Tegal No. 7</string>
+    <string name="guest_address_7">Rumah Guru Nobi, Jl. Pintar No. 4</string>
+    <string name="guest_address_8">Rumah Nobisuke, Jl. Bahagia No. 8</string>
+
+    <string name="about">Tentang:</string>
+    <string name="years_old">%d tahun</string>
+    <string name="expand_button_content_description">Lihat lebih banyak atau sedikit informasi tentang tamu.</string>
+
+</resources>
