@@ -1,0 +1,41 @@
+
+<resources>
+<string name="app_name">My Schedule</string>
+
+<string name="hari_1">Monday</string>
+<string-array name="monday_schedule">
+    <item>Pemrograman Berbasis Mobile, T.3.2, Pukul : 15.00 - 17.30</item>
+</string-array>
+
+<string name="hari_2">Tuesday</string>
+<string-array name="tuesday_schedule">
+    <item>Proyek Pengembangan Aplikasi Web, T.3.3, Pukul : 07.30 - 10.00</item>
+    <item>Manajemen Proyek, S.2.2, Pukul : 13.00 - 14.40</item>
+    <item>Infrastruktur Big Data, S.3.3, Pukul : 15.00 - 17.30</item>
+</string-array>
+
+<string name="hari_3">Wednesday</string>
+<string-array name="wednesday_schedule">
+    <item>Pendidikan Bahasa Indonesia, S.2.1, Pukul : 08.00 - 10.00</item>
+    <item>Pengenalan Pola, S.3.1, Pukul : 10.00 - 12.00</item>
+    <item>Bahasa Inggris 3, S.2.3, Pukul : 13.00 - 14.40</item>
+</string-array>
+
+<string name="hari_4">Thursday</string>
+<string-array name="thursday_schedule">
+    <item>Data Mining, S.2.3, Pukul : 07.30 - 10.00</item>
+    <item>Sistem Pendukung Keputusan, S.3.1, Pukul : 10.00 - 12.30</item>
+    <item>Praktikum Infrastruktur Big Data, Lab.Informatika 2, Pukul : 13.00 - 15.00</item>
+</string-array>
+
+<string name="hari_5">Friday</string>
+<string-array name="friday_schedule">
+    <item>Praktikum Pemrograman Mobile, Lab. Manajemen Ritel, Pukul : 10.00 - 12.00</item>
+</string-array>
+
+<string name="about">About:</string>
+<string name="total_sks">%d SKS</string>
+
+<string name="expand_button_content_description">See more or less information.</string>
+
+</resources>
