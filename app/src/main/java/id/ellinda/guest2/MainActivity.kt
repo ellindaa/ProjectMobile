@@ -44,9 +44,11 @@ class MainActivity : ComponentActivity() {
  */
 @Composable
 fun GuestApp() {
+    // Scaffold, layout untuk aplikasi dengan appbar, floating action button, dan konten utama.
     Scaffold(
         topBar = { GuestTopAppBar() }
     ) { innerPadding ->
+        // Lazycolumn, untuk menampilkan daftar tamu secara scrollable.
         LazyColumn(contentPadding = innerPadding) {
             items(guests) { guest ->
                 GuestItem(
@@ -61,19 +63,25 @@ fun GuestApp() {
 /**
  * Composable that displays a list item containing a guest's information.
  */
+ // Function compossable sebagai UI Layer untuk mendefinisikan tampilan UI 
+ // Data layer mengambil data tamu dari guests yang merupakan koleksi dari objek guest. 
 @Composable
 fun GuestItem(
     guest: Guest,
     modifier: Modifier = Modifier
 ) {
+    // remember { mutableStateOf(false) sebagai state digunakan untuk menyimpan status apakah informasi diperluas atau tidak
     var expanded by remember { mutableStateOf(false) }
+    // Card, untuk membungkus setiap item tamu dalam daftar, memberikan tampilan yang terpisah.
     Card(
         modifier = modifier
     ) {
+        // Column, untuk menumpuk informasi tamu dan catatan secara vertikal
         Column(
             modifier = Modifier
                 .animateContentSize()
         ) {
+            // Row, untuk menemoatkan ikon tamu, informasi, dan tombol disatu baris
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -106,7 +114,7 @@ private fun GuestItemButton(
     expanded: Boolean,
     onClick: () -> Unit,
     modifier: Modifier = Modifier
-) {
+) { // iconButton untuk menampilkan tombol yang dapat di klik untuk memperluas atau menyusutkan informasi tertentu.
     IconButton(
         onClick = onClick,
         modifier = modifier
@@ -124,18 +132,21 @@ private fun GuestItemButton(
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
+// Appbar dihasilkan oleh centeraligntopbar dalam guesttopappbar yang menampilkan logo dan nama aplikasi
 fun GuestTopAppBar(modifier: Modifier = Modifier) {
     CenterAlignedTopAppBar(
         title = {
             Row(
                 verticalAlignment = Alignment.CenterVertically
             ) {
+                // Image, menampilkan logo dan gambar foto tamu
                 Image(
                     modifier = Modifier.size(dimensionResource(R.dimen.image_size))
                         .padding(dimensionResource(R.dimen.padding_small)),
                     painter = painterResource(R.drawable.logo), // Ganti dengan logo tamu
                     contentDescription = null
                 )
+                // Text, untuk menampilkan teks seperti nama tamu, alamat daalam GuestInformation.
                 Text(
                     text = stringResource(R.string.app_name),
                     style = MaterialTheme.typography.titleLarge
