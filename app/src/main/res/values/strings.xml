@@ -33,7 +33,6 @@
     <item>Praktikum Pemrograman Mobile, Lab. Manajemen Ritel, Pukul : 10.00 - 12.00</item>
 </string-array>
 
-<string name="about">About:</string>
 <string name="total_sks">%d SKS</string>
 
 <string name="expand_button_content_description">See more or less information.</string>
