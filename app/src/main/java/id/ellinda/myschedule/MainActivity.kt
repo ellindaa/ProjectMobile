@@ -29,6 +29,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringArrayResource
 import androidx.compose.ui.unit.sp
+// Data Layer
 import id.ellinda.myschedule.data.Schedule
 import id.ellinda.myschedule.data.schedules
 import id.ellinda.myschedule.ui.theme.MyScheduleTheme
@@ -48,7 +49,9 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun ScheduleApp() {
+    // Scaffold dalam fungsi ini untuk menampilkan struktur aplikasi yang memiliki TopAppBar
     Scaffold(topBar = { ScheduleTopAppBar() }) { paddingValues ->
+        // Lazycolumn digunakan untuk menampilkan daftar jadwal yang bisa di gulir secara vertikal
         LazyColumn(contentPadding = paddingValues) {
             items(schedules) { schedule ->
                 ScheduleItem(
@@ -62,25 +65,29 @@ fun ScheduleApp() {
 
 @Composable
 fun ScheduleItem(schedule: Schedule, modifier: Modifier = Modifier) {
+    // remember { mutableStateOf(false) } untuk mengelola status ekspansi jadwal di dalam Scheduleitem
     var expanded by remember { mutableStateOf(false) }
+    // untuk membuat tampilan kartu pada setiap jadwal
     Card(modifier = modifier) {
+        // Kolom untuk menata elemen dalam bentuk vertikal
         Column(
-            modifier = Modifier.animateContentSize(
-                animationSpec = spring(
-                    dampingRatio = Spring.DampingRatioNoBouncy,
-                    stiffness = Spring.StiffnessMedium
+            modifier = Modifier.animateContentSize( // animateContentSize digunakan untuk memberikan efek animasi ketika ukuran konten di daalam kolom berubah
+                animationSpec = spring( // jenis animasi yang  adalah spring
+                    dampingRatio = Spring.DampingRatioNoBouncy, // tidak ada efek pantulan ketika animasi selesai
+                    stiffness = Spring.StiffnessMedium // mengontrol kekakuan dari animasi
                 )
             )
         ) {
+            // Row untuk menata ikon, informasi jadwal dan tombol secara horizontal
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(dimensionResource(R.dimen.padding_small))
             ) {
-                ScheduleIcon(schedule.imageResourceId)
-                ScheduleInformation(schedule.name, schedule.sks, schedule.room)
+                ScheduleIcon(schedule.imageResourceId) // Menampilkan ikon jadwal berdasarkan id gambar yang ada dalam objek schedule
+                ScheduleInformation(schedule.name, schedule.sks, schedule.room) // menampilkan informasi mengenai jadwal
                 Spacer(Modifier.weight(1f))
-                ScheduleItemButton(expanded = expanded, onClick = { expanded = !expanded })
+                ScheduleItemButton(expanded = expanded, onClick = { expanded = !expanded })  // state expanded digunakan untuk menentukan apakah detail jadwal sedang diperluas atau tidak
             }
             if (expanded) {
                 ScheduleDetails(
@@ -98,7 +105,9 @@ fun ScheduleItem(schedule: Schedule, modifier: Modifier = Modifier) {
 }
 
 @Composable
+
 private fun ScheduleItemButton(expanded: Boolean, onClick: () -> Unit) {
+    // untuk menangani klik dan memperluas atau menyembunyikan detail jadwal
     IconButton(onClick = onClick) {
         Icon(
             imageVector = if (expanded) Icons.Filled.ExpandLess else Icons.Filled.ExpandMore,
@@ -110,16 +119,18 @@ private fun ScheduleItemButton(expanded: Boolean, onClick: () -> Unit) {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
+// komponen AppBar digunakan dengan elemen judul yang terdiri dari gambar logo dan judul aplikasi
 fun ScheduleTopAppBar(modifier: Modifier = Modifier) {
     CenterAlignedTopAppBar(
         title = {
+            // Row untuk menata ikon aplikasi dan teks judul secara horizontal
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Image(
                     modifier = Modifier
                         .size(dimensionResource(R.dimen.image_size))
                         .padding(dimensionResource(R.dimen.padding_small)),
                     painter = painterResource(R.drawable.logo),
-                    contentDescription = null
+                    contentDescription = null // Deskripsi dari konten
                 )
                 Text(
                     text = stringResource(R.string.app_name),
@@ -132,6 +143,7 @@ fun ScheduleTopAppBar(modifier: Modifier = Modifier) {
 }
 
 @Composable
+// menampilkan ikon dari schedule
 fun ScheduleIcon(@DrawableRes scheduleIcon: Int, modifier: Modifier = Modifier) {
     Image(
         modifier = modifier
@@ -145,6 +157,7 @@ fun ScheduleIcon(@DrawableRes scheduleIcon: Int, modifier: Modifier = Modifier) 
 }
 
 @Composable
+// untuk menampilkan informasi 
 fun ScheduleInformation(@StringRes name: Int, sks: Int, room: String, modifier: Modifier = Modifier) {
     Column(modifier = modifier) {
         Text(
@@ -163,17 +176,14 @@ fun ScheduleInformation(@StringRes name: Int, sks: Int, room: String, modifier: 
     }
 }
 
-@SuppressLint("ResourceType")
+@SuppressLint("ResourceType") // Anotasi untuk menonaktifkan peringatan lint tertentu
 @Composable
 fun ScheduleDetails(schedule: Schedule, modifier: Modifier = Modifier) {
+     // Kolom untuk menata elemen dalam bentuk vertikal
     Column(modifier = modifier) {
         Text(text = "Schedule Details", style = MaterialTheme.typography.bodyMedium)
         Spacer(modifier = Modifier.height(8.dp))
-
-        // Get the subjects from the string array resource
         val subjects = stringArrayResource(schedule.timeArray)
-
-        // Display each subject
         subjects.forEach { subject ->
             Text(text = subject, style = MaterialTheme.typography.bodyMedium)
         }
